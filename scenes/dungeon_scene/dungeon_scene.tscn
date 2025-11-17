@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://0cfick8o67u6"]
+[gd_scene load_steps=3 format=3 uid="uid://0cfick8o67u6"]
+
+[ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_at4pv"]
+[ext_resource type="PackedScene" uid="uid://ce1y0c3dq5cg8" path="res://scenes/scene_entrance/scene_entrance.tscn" id="2_6od5n"]
 
 [node name="DungeonScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_at4pv")]
+
+[node name="SceneEntrance" parent="." instance=ExtResource("2_6od5n")]
+position = Vector2(0, 40)
+next_scene = "res://scenes/game_scene/game_scene.tscn"

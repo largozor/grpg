@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://pqu02xeht3b8"]
+[gd_scene load_steps=13 format=4 uid="uid://pqu02xeht3b8"]
 
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_pwder"]
 [ext_resource type="Texture2D" uid="uid://ttltjouwpvac" path="res://assets/Backgrounds/Tilesets/TilesetFloor.png" id="2_72663"]
+[ext_resource type="Texture2D" uid="uid://ds8872onmcuk1" path="res://assets/Backgrounds/Tilesets/TilesetReliefDetail.png" id="3_ducuf"]
 [ext_resource type="Texture2D" uid="uid://cw7go1jpgvrrq" path="res://assets/Backgrounds/Tilesets/TilesetNature.png" id="3_o81xq"]
+[ext_resource type="PackedScene" uid="uid://ce1y0c3dq5cg8" path="res://scenes/scene_entrance/scene_entrance.tscn" id="5_ducuf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o81xq"]
 texture = ExtResource("2_72663")
@@ -2382,9 +2384,51 @@ texture = ExtResource("3_o81xq")
 2:12/size_in_atlas = Vector2i(2, 2)
 2:12/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmtvo"]
+texture = ExtResource("3_ducuf")
+0:0/0 = 0
+1:0/0 = 0
+3:7/size_in_atlas = Vector2i(3, 3)
+3:7/0 = 0
+0:7/size_in_atlas = Vector2i(3, 3)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 12, -8, 0, 8, 0, 8, 12, 20, 12, 20, -12, -20, -12, -20, 12)
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+2:3/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+3:4/0 = 0
+3:5/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+5:4/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ducuf"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xb203")
+sources/1 = SubResource("TileSetAtlasSource_wmtvo")
 
 [node name="GameScene" type="Node2D"]
 
@@ -2398,13 +2442,13 @@ tile_set = SubResource("TileSet_o81xq")
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD1/wYAAAAAABIAAAANAAEAAAAAABIAAAAUAAEAAAARAA4AAAAaAPz/AAARAA4AAAAUAPn/AAARAA4AAAAcAAQAAAARAA4AAAAkAAIAAAARAA4AAAAjAPj/AAARAA4AAAD8/wEAAAAGAAAAAAABAAMAAAAGAAAAAAD6//7/AAAGAAAAAAAEAP3/AAAEAAAAAAAAAPr/AAAEAAAAAAAIAPf/AAAEAAAAAAAMAPX/AAAEAAAAAAADAPT/AAAEAAAAAAAJAPL/AAAEAAAAAAD+//3/AAAAAAAAAAD2/wEAAAAAAAIAAAACAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAD1/wYAAAAAABIAAAANAAEAAAAAABIAAAAUAAEAAAARAA4AAAAaAPz/AAARAA4AAAAUAPn/AAARAA4AAAAcAAQAAAARAA4AAAAkAAIAAAARAA4AAAAjAPj/AAARAA4AAAD8/wEAAAAGAAAAAAABAAMAAAAGAAAAAAD6//7/AAAGAAAAAAAEAP3/AAAEAAAAAAAAAPr/AAAEAAAAAAAIAPf/AAAEAAAAAAAMAPX/AAAEAAAAAAADAPT/AAAEAAAAAAAJAPL/AAAEAAAAAAD+//3/AAAAAAAAAAD2/wEAAAAAAAIAAAACAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAANAP3/AQAAAAcAAAA=")
 tile_set = SubResource("TileSet_ducuf")
 
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_pwder")]
 y_sort_enabled = true
 move_speed = 60.0
 
-[node name="Camera2D" type="Camera2D" parent="ObstacleLayer/Player"]
-zoom = Vector2(5, 5)
-process_callback = 0
+[node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
+position = Vector2(217, -40)
+next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
