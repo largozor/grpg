@@ -8,6 +8,7 @@ class_name Player
 @onready var sprite = $AnimatedSprite2D
 
 func _ready() -> void:
+	position = SceneManager.player_spawn_position
 	pass
 
 
