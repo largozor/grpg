@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://scenes/scene_manager/scene_manager.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
 [input]
 
 move_left={
