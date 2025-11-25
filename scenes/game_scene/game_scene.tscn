@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://pqu02xeht3b8"]
+[gd_scene load_steps=16 format=4 uid="uid://pqu02xeht3b8"]
 
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_pwder"]
 [ext_resource type="Texture2D" uid="uid://ttltjouwpvac" path="res://assets/Backgrounds/Tilesets/TilesetFloor.png" id="2_72663"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ce1y0c3dq5cg8" path="res://scenes/scene_entrance/scene_entrance.tscn" id="5_ducuf"]
 [ext_resource type="PackedScene" uid="uid://cwowdw021mdyn" path="res://scenes/block/block.tscn" id="6_j8flk"]
 [ext_resource type="PackedScene" uid="uid://crsn7hmgdfw8y" path="res://scenes/puzzle_button/puzzle_button.tscn" id="7_wmtvo"]
+[ext_resource type="PackedScene" uid="uid://lwr4bie03kib" path="res://scenes/locked_door/locked_door.tscn" id="8_201br"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o81xq"]
 texture = ExtResource("2_72663")
@@ -2456,9 +2457,15 @@ move_speed = 60.0
 hp = 10
 push_strength = 500.0
 
+[node name="LockedDoor" parent="ObstacleLayer" instance=ExtResource("8_201br")]
+position = Vector2(152, 3)
+
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
 position = Vector2(217, -40)
 next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
 
 [node name="Block" parent="." instance=ExtResource("6_j8flk")]
 position = Vector2(28, -43)
+
+[connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]

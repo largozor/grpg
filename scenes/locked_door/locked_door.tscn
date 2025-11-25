@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://lwr4bie03kib"]
+
+[ext_resource type="Script" uid="uid://dfs1shl451r2" path="res://scripts/locked_door/locked_door.gd" id="1_icwvm"]
+[ext_resource type="Texture2D" uid="uid://ds8872onmcuk1" path="res://assets/Backgrounds/Tilesets/TilesetReliefDetail.png" id="1_o3u5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7n00"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icwvm"]
+atlas = ExtResource("1_o3u5e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4njut"]
+atlas = ExtResource("1_o3u5e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2u8n8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icwvm")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4njut")
+}],
+"loop": true,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[node name="LockedDoor" type="StaticBody2D"]
+script = ExtResource("1_icwvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u7n00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2u8n8")
+animation = &"locked"
+autoplay = "locked"
