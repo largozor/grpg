@@ -4,6 +4,7 @@ class_name Player
 
 @export var move_speed: float = 100
 @export var hp: int = 10
+@export var push_strength: float = 100
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -28,5 +29,15 @@ func _process(delta) -> void:
 		sprite.play("walk_up")
 	if velocity == Vector2(0,0):
 		sprite.stop()
+	
+	# Get the last collision, and push the block
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	
+	if collision:
+		var collider_node = collision.get_collider()
+		
+		if collider_node is RigidBody2D:
+			var collision_normal: Vector2 = collision.get_normal()
+			collider_node.apply_central_force(-collision_normal * push_strength)
 	
 	move_and_slide()

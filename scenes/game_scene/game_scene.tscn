@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://pqu02xeht3b8"]
+[gd_scene load_steps=14 format=4 uid="uid://pqu02xeht3b8"]
 
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_pwder"]
 [ext_resource type="Texture2D" uid="uid://ttltjouwpvac" path="res://assets/Backgrounds/Tilesets/TilesetFloor.png" id="2_72663"]
 [ext_resource type="Texture2D" uid="uid://ds8872onmcuk1" path="res://assets/Backgrounds/Tilesets/TilesetReliefDetail.png" id="3_ducuf"]
 [ext_resource type="Texture2D" uid="uid://cw7go1jpgvrrq" path="res://assets/Backgrounds/Tilesets/TilesetNature.png" id="3_o81xq"]
 [ext_resource type="PackedScene" uid="uid://ce1y0c3dq5cg8" path="res://scenes/scene_entrance/scene_entrance.tscn" id="5_ducuf"]
+[ext_resource type="PackedScene" uid="uid://cwowdw021mdyn" path="res://scenes/block/block.tscn" id="6_j8flk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o81xq"]
 texture = ExtResource("2_72663")
@@ -2448,7 +2449,11 @@ tile_set = SubResource("TileSet_ducuf")
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_pwder")]
 y_sort_enabled = true
 move_speed = 60.0
+push_strength = 200.0
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
 position = Vector2(217, -40)
 next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
+
+[node name="Block" parent="." instance=ExtResource("6_j8flk")]
+position = Vector2(28, -43)
