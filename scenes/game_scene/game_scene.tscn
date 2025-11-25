@@ -2449,6 +2449,7 @@ tile_set = SubResource("TileSet_ducuf")
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_pwder")]
 y_sort_enabled = true
 move_speed = 60.0
+hp = 10
 push_strength = 200.0
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
