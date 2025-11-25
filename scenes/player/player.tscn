@@ -146,6 +146,8 @@ height = 14.0
 motion_mode = 1
 script = ExtResource("1_dovo2")
 move_speed = 40.0
+hp = null
+push_strength = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0owmy")

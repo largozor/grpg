@@ -36,8 +36,10 @@ func _process(delta) -> void:
 	if collision:
 		var collider_node = collision.get_collider()
 		
-		if collider_node is RigidBody2D:
+		if collider_node.is_in_group("pushable"):
 			var collision_normal: Vector2 = collision.get_normal()
 			collider_node.apply_central_force(-collision_normal * push_strength)
+		
+		
 	
 	move_and_slide()
