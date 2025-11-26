@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0bxci5d41ym"]
+
+[ext_resource type="PackedScene" uid="uid://cwowdw021mdyn" path="res://scenes/block/block.tscn" id="1_je3e2"]
+[ext_resource type="Texture2D" uid="uid://bls8yvlp66044" path="res://assets/Backgrounds/Tilesets/TilesetDungeon.png" id="2_tl2ls"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_je3e2"]
+bounce = 0.05
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnrq0"]
+atlas = ExtResource("2_tl2ls")
+region = Rect2(0, 32, 16, 16)
+
+[node name="Block" instance=ExtResource("1_je3e2")]
+physics_material_override = SubResource("PhysicsMaterial_je3e2")
+linear_damp = 0.2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_fnrq0")
