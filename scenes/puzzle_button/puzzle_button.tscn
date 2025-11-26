@@ -34,7 +34,6 @@ animations = [{
 }]
 
 [node name="PuzzleButton" type="Area2D"]
-position = Vector2(0, -1)
 script = ExtResource("1_m3m81")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

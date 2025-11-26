@@ -4,7 +4,7 @@ class_name Player
 
 @export var move_speed: float = 100
 @export var hp: int = 10
-@export var push_strength: float = 100
+@export var push_strength: float = 500
 
 @onready var sprite = $AnimatedSprite2D
 

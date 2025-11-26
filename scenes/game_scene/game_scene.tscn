@@ -280,9 +280,7 @@ tile_set = SubResource("TileSet_ducuf")
 
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_pwder")]
 y_sort_enabled = true
-move_speed = 60.0
-hp = 10
-push_strength = 500.0
+move_speed = 100.0
 
 [node name="LockedDoor" parent="ObstacleLayer" instance=ExtResource("8_201br")]
 position = Vector2(217, -34)
