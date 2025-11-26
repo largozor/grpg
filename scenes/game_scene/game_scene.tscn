@@ -271,7 +271,7 @@ sources/1 = SubResource("TileSetAtlasSource_wmtvo")
 [node name="FloorLayer" parent="." instance=ExtResource("2_dgii4")]
 
 [node name="PuzzleButton" parent="." instance=ExtResource("7_wmtvo")]
-position = Vector2(76, 1)
+position = Vector2(174, 2)
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="." groups=["obstacles"]]
 y_sort_enabled = true
@@ -285,14 +285,14 @@ hp = 10
 push_strength = 500.0
 
 [node name="LockedDoor" parent="ObstacleLayer" instance=ExtResource("8_201br")]
-position = Vector2(152, 3)
+position = Vector2(217, -34)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
 position = Vector2(217, -40)
 next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
 
 [node name="Block" parent="." instance=ExtResource("6_j8flk")]
-position = Vector2(28, -43)
+position = Vector2(144, 2)
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]
