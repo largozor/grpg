@@ -13,7 +13,7 @@
 [node name="DungeonScene" type="Node2D"]
 
 [node name="SceneEntrance" parent="." instance=ExtResource("2_6od5n")]
-position = Vector2(-40, -118)
+position = Vector2(321, -14)
 next_scene = "res://scenes/game_scene/game_scene.tscn"
 player_spawn_position = Vector2(216, -20)
 
@@ -31,11 +31,22 @@ position = Vector2(-71, -40)
 
 [node name="PuzzleButton3" parent="." instance=ExtResource("9_b53cf")]
 position = Vector2(440, -10)
+is_single_use = true
+
+[node name="PuzzleButton4" parent="." instance=ExtResource("9_b53cf")]
+position = Vector2(-40, -113)
+is_single_use = true
 
 [node name="LockedDoor" parent="." instance=ExtResource("5_kxc3c")]
 y_sort_enabled = true
 position = Vector2(-40, -73)
 buttons_needed = 2
+
+[node name="LockedDoor2" parent="." instance=ExtResource("5_kxc3c")]
+position = Vector2(358, 24)
+
+[node name="LockedDoor3" parent="." instance=ExtResource("5_kxc3c")]
+position = Vector2(249, 136)
 
 [node name="Block" parent="." instance=ExtResource("7_b53cf")]
 position = Vector2(72, 11)
@@ -50,11 +61,9 @@ move_speed = 100.0
 [node name="Block3" parent="." instance=ExtResource("8_khfx7")]
 position = Vector2(319, 116)
 
-[node name="LockedDoor2" parent="." instance=ExtResource("5_kxc3c")]
-position = Vector2(358, 24)
-
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 [connection signal="pressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 [connection signal="pressed" from="PuzzleButton3" to="LockedDoor2" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="PuzzleButton4" to="LockedDoor3" method="_on_puzzle_button_pressed"]
