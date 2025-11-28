@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_201br"]
 
 [node name="SceneEntrance" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_tyhpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
