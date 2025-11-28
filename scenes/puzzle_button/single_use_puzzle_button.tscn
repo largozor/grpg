@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://s22lhttv1wnn"]
+
+[ext_resource type="PackedScene" uid="uid://crsn7hmgdfw8y" path="res://scenes/puzzle_button/puzzle_button.tscn" id="1_npuef"]
+[ext_resource type="Texture2D" uid="uid://bls8yvlp66044" path="res://assets/Backgrounds/Tilesets/TilesetDungeon.png" id="2_jgnyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qmu7"]
+atlas = ExtResource("2_jgnyw")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5pli"]
+atlas = ExtResource("2_jgnyw")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5rq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qmu7")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5pli")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[node name="PuzzleButton" instance=ExtResource("1_npuef")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_i5rq0")
+animation = &"pressed"
