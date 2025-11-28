@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1nguld3uj7rm"]
+
+[ext_resource type="Texture2D" uid="uid://7std416ww63l" path="res://assets/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="1_ivh6b"]
+[ext_resource type="Script" uid="uid://c5no88ongi0no" path="res://scripts/npc/npc.gd" id="1_m5fb5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5fb5"]
+atlas = ExtResource("1_ivh6b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ejjj"]
+radius = 7.0
+height = 14.0
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource("1_m5fb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_m5fb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_5ejjj")

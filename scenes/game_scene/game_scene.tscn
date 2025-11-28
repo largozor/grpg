@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://pqu02xeht3b8"]
+[gd_scene load_steps=14 format=4 uid="uid://pqu02xeht3b8"]
 
 [ext_resource type="PackedScene" uid="uid://d3u12f7yi7lud" path="res://scenes/tilemaps/grass_layer.tscn" id="1_j6s53"]
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_pwder"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwowdw021mdyn" path="res://scenes/block/block.tscn" id="6_j8flk"]
 [ext_resource type="PackedScene" uid="uid://crsn7hmgdfw8y" path="res://scenes/puzzle_button/puzzle_button.tscn" id="7_wmtvo"]
 [ext_resource type="PackedScene" uid="uid://lwr4bie03kib" path="res://scenes/locked_door/locked_door.tscn" id="8_201br"]
+[ext_resource type="PackedScene" uid="uid://b1nguld3uj7rm" path="res://scenes/npcs/npc.tscn" id="10_dgii4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xb203"]
 texture = ExtResource("3_o81xq")
@@ -291,6 +292,9 @@ next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
 
 [node name="Block" parent="." instance=ExtResource("6_j8flk")]
 position = Vector2(144, 2)
+
+[node name="NPC" parent="." instance=ExtResource("10_dgii4")]
+position = Vector2(106, 28)
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]
