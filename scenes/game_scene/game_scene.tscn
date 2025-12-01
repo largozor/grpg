@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://pqu02xeht3b8"]
+[gd_scene load_steps=16 format=4 uid="uid://pqu02xeht3b8"]
 
 [ext_resource type="PackedScene" uid="uid://d3u12f7yi7lud" path="res://scenes/tilemaps/grass_layer.tscn" id="1_j6s53"]
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_pwder"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://crsn7hmgdfw8y" path="res://scenes/puzzle_button/puzzle_button.tscn" id="7_wmtvo"]
 [ext_resource type="PackedScene" uid="uid://lwr4bie03kib" path="res://scenes/locked_door/locked_door.tscn" id="8_201br"]
 [ext_resource type="PackedScene" uid="uid://b1nguld3uj7rm" path="res://scenes/npcs/npc.tscn" id="10_dgii4"]
+[ext_resource type="Texture2D" uid="uid://cqpllalpsp6t1" path="res://assets/Actor/Characters/NinjaGreen/SpriteSheet.png" id="11_3di6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xb203"]
 texture = ExtResource("3_o81xq")
@@ -265,6 +266,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xb203")
 sources/1 = SubResource("TileSetAtlasSource_wmtvo")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iprv4"]
+atlas = ExtResource("11_3di6p")
+region = Rect2(0, 0, 16, 16)
+
 [node name="GameScene" type="Node2D"]
 
 [node name="GrassLayer" parent="." instance=ExtResource("1_j6s53")]
@@ -296,5 +301,23 @@ position = Vector2(144, 2)
 [node name="NPC" parent="." instance=ExtResource("10_dgii4")]
 position = Vector2(106, 28)
 
+[node name="DialogText" parent="NPC/CanvasLayer/DialogBoxTexture" index="1"]
+text = "I'm a blue ninja"
+
+[node name="NPC2" parent="." instance=ExtResource("10_dgii4")]
+position = Vector2(21, -55)
+
+[node name="Sprite2D" parent="NPC2" index="0"]
+texture = SubResource("AtlasTexture_iprv4")
+
+[node name="DialogText" parent="NPC2/CanvasLayer/DialogBoxTexture" index="1"]
+text = "I'm a green ninja"
+
+[node name="NPCName" parent="NPC2/CanvasLayer/DialogBoxTexture" index="2"]
+text = "Green Ninja"
+
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]
+
+[editable path="NPC"]
+[editable path="NPC2"]
