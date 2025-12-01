@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+class_name NPC
+
 @onready var dialog_box = $CanvasLayer
 @onready var ui_label = $CanvasLayer/TextureRect/Label
 

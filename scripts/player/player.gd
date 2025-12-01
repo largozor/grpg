@@ -56,11 +56,14 @@ func push_blocks():
 
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
-	print("body entered interact area")
-	body.can_interact = true
+	if body.is_in_group("interactable"):
+		print("body entered interact area")
+		body.can_interact = true
 
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
-	print("body exited interact area")
-	body.can_interact = false
-	body.close_dialog()
+	if body.is_in_group("interactable"):
+		print("body exited interact area")
+		body.can_interact = false
+		if body is NPC:
+			body.close_dialog()
