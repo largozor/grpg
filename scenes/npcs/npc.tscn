@@ -17,7 +17,7 @@ height = 14.0
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="NPC" type="StaticBody2D"]
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource("1_m5fb5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

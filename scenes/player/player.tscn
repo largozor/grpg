@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mqbewlb04dp3"]
+[gd_scene load_steps=22 format=3 uid="uid://mqbewlb04dp3"]
 
 [ext_resource type="Script" uid="uid://bnrk734d402le" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://m5fhwhmjmhi5" path="res://assets/Actor/Characters/NinjaRed2/SpriteSheet.png" id="2_dovo2"]
@@ -142,6 +142,9 @@ animations = [{
 radius = 6.0
 height = 14.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(8, 8)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -159,3 +162,13 @@ shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_dovo2")
+debug_color = Color(2.2862107e-06, 0.6484038, 0.19173539, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_interact_area_body_exited"]

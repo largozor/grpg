@@ -32,6 +32,7 @@ walls=""
 floors=""
 obstacles=""
 blocks=""
+interactable=""
 
 [input]
 

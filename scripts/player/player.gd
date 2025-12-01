@@ -7,6 +7,7 @@ class_name Player
 @export var push_strength: float = 500
 
 @onready var sprite = $AnimatedSprite2D
+@onready var interact_area = $Area2D
 
 func _ready() -> void:
 	if SceneManager.player_spawn_position != Vector2(0,0):
@@ -29,12 +30,16 @@ func move_player():
 	
 	if velocity.x > 0:
 		sprite.play("walk_right")
+		interact_area.position = Vector2(11, 1)
 	elif velocity.x < 0:
 		sprite.play("walk_left")
+		interact_area.position = Vector2(-11, 1)
 	elif velocity.y > 0:
 		sprite.play("walk_down")
+		interact_area.position = Vector2(0, 12)
 	elif velocity.y < 0:
 		sprite.play("walk_up")
+		interact_area.position = Vector2(0, -12)
 	if velocity == Vector2(0,0):
 		sprite.stop()
 
@@ -48,3 +53,14 @@ func push_blocks():
 		if collider_node.is_in_group("pushable"):
 			var collision_normal: Vector2 = collision.get_normal()
 			collider_node.apply_central_force(-collision_normal * push_strength)
+
+
+func _on_interact_area_body_entered(body: Node2D) -> void:
+	print("body entered interact area")
+	body.can_interact = true
+
+
+func _on_interact_area_body_exited(body: Node2D) -> void:
+	print("body exited interact area")
+	body.can_interact = false
+	body.close_dialog()
