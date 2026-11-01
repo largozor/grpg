@@ -66,7 +66,7 @@ func push_blocks():
 
 
 func is_in_dialog() -> bool:
-	return interact_target is NPC and interact_target.is_dialog_open()
+	return DialogBox.is_open()
 
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
