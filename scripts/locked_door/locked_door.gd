@@ -15,6 +15,6 @@ func _on_puzzle_button_pressed() -> void:
 
 func _on_puzzle_button_unpressed() -> void:
 	buttons_pushed -= 1
-	if buttons_pushed <= buttons_needed:
+	if buttons_pushed < buttons_needed:
 		sprite.play("locked")
 		collision_shape.set_deferred("disabled", false)

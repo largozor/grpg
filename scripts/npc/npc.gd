@@ -3,17 +3,13 @@ extends StaticBody2D
 class_name NPC
 
 @onready var dialog_box = $CanvasLayer
-@onready var ui_label = $CanvasLayer/TextureRect/Label
+@onready var ui_label = $CanvasLayer/DialogBoxTexture/DialogText
 
-@onready var can_interact: bool = false
+func interact():
+	dialog_box.visible = not dialog_box.visible
 
-func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		if can_interact:
-			if dialog_box.visible == true:
-				dialog_box.visible = false
-			else:
-				dialog_box.visible = true
+func is_dialog_open() -> bool:
+	return dialog_box.visible
 
 func close_dialog():
 	dialog_box.visible = false
