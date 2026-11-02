@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b1nguld3uj7rm" path="res://scenes/npcs/npc.tscn" id="10_dgii4"]
 [ext_resource type="Texture2D" uid="uid://cqpllalpsp6t1" path="res://assets/Actor/Characters/NinjaGreen/SpriteSheet.png" id="11_3di6p"]
 [ext_resource type="Texture2D" uid="uid://ug437744un7c" path="res://assets/Actor/Characters/NinjaGreen/Faceset.png" id="12_grnfc"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/slime.tscn" id="13_slime"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xb203"]
 texture = ExtResource("3_o81xq")
@@ -291,6 +292,12 @@ move_speed = 100.0
 
 [node name="LockedDoor" parent="ObstacleLayer" instance=ExtResource("8_201br")]
 position = Vector2(217, -34)
+
+[node name="Slime" parent="ObstacleLayer" instance=ExtResource("13_slime")]
+position = Vector2(-110, 70)
+
+[node name="Slime2" parent="ObstacleLayer" instance=ExtResource("13_slime")]
+position = Vector2(-20, 130)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
 position = Vector2(217, -40)
