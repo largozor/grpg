@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 class_name Player
 
-signal health_changed(hp: int)
+signal health_changed(hp: int, max_hp: int)
 signal died
 
 @export var move_speed: float = 100
-@export var hp: int = 10
+@export var max_hp: int = 10
 @export var push_strength: float = 500
 @export var attack_damage: int = 1
 @export var attack_duration: float = 0.25
@@ -26,10 +26,15 @@ var facing: Vector2 = Vector2.DOWN
 var is_attacking: bool = false
 var is_invincible: bool = false
 var knockback: Vector2 = Vector2.ZERO
+var hp: int
 
 func _ready() -> void:
 	if SceneManager.player_spawn_position != Vector2(0,0):
 		position = SceneManager.player_spawn_position
+
+	# Carry health over from the last scene
+	hp = max_hp if SceneManager.player_hp < 0 else mini(SceneManager.player_hp, max_hp)
+	health_changed.emit(hp, max_hp)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -136,7 +141,8 @@ func take_damage(amount: int, from_position: Vector2):
 		return
 
 	hp -= amount
-	health_changed.emit(hp)
+	SceneManager.player_hp = hp
+	health_changed.emit(hp, max_hp)
 	hurt_sound.play()
 	knockback = from_position.direction_to(global_position) * knockback_strength
 
@@ -162,6 +168,8 @@ func die():
 	sprite.stop()
 	sprite.modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(1.0).timeout
+	# Come back at full health
+	SceneManager.player_hp = -1
 	get_tree().reload_current_scene()
 
 

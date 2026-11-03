@@ -62,7 +62,7 @@ dialog_lines = Array[String](["Welcome to the training arena!", "Press Z or J to
 
 [node name="StatusLabel" type="Label" parent="HUD"]
 offset_left = 16.0
-offset_top = 12.0
+offset_top = 88.0
 offset_right = 916.0
-offset_bottom = 80.0
+offset_bottom = 156.0
 label_settings = SubResource("LabelSettings_status")

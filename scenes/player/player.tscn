@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://mqbewlb04dp3"]
+[gd_scene load_steps=31 format=3 uid="uid://mqbewlb04dp3"]
 
 [ext_resource type="Script" uid="uid://bnrk734d402le" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://m5fhwhmjmhi5" path="res://assets/Actor/Characters/NinjaRed2/SpriteSheet.png" id="2_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dogeei01jw421" path="res://assets/Items/Weapons/Sword/SpriteInHand.png" id="3_sword"]
 [ext_resource type="AudioStream" uid="uid://bpnuqp1d3y26y" path="res://assets/Sounds/Game/Sword.wav" id="4_swsnd"]
 [ext_resource type="AudioStream" uid="uid://ckakw3lnmkhy6" path="res://assets/Sounds/Game/Hit.wav" id="5_hurt"]
+[ext_resource type="PackedScene" path="res://scenes/hud/hud.tscn" id="6_hud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugbui"]
 atlas = ExtResource("2_dovo2")
@@ -243,5 +244,8 @@ stream = ExtResource("4_swsnd")
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_hurt")
 
+[node name="HUD" parent="." instance=ExtResource("6_hud")]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_interact_area_body_exited"]
+[connection signal="health_changed" from="." to="HUD" method="_on_player_health_changed"]
