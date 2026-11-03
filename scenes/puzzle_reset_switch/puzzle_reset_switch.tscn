@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/puzzle_reset_switch/puzzle_reset_switch.gd" id="1_reset"]
+[ext_resource type="Texture2D" uid="uid://bls8yvlp66044" path="res://assets/Backgrounds/Tilesets/TilesetDungeon.png" id="2_tiles"]
+[ext_resource type="AudioStream" path="res://assets/Sounds/Game/Magic1.wav" id="3_sound"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_off"]
+atlas = ExtResource("2_tiles")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on"]
+atlas = ExtResource("2_tiles")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_switch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_off")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_switch"]
+size = Vector2(12, 12)
+
+[node name="PuzzleResetSwitch" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_reset")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_switch")
+animation = &"off"
+autoplay = "off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_switch")
+
+[node name="ResetSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sound")
