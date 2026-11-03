@@ -2,14 +2,15 @@ extends StaticBody2D
 
 class_name NPC
 
-@onready var dialog_box = $CanvasLayer
-@onready var ui_label = $CanvasLayer/DialogBoxTexture/DialogText
+@export var npc_name: String = "NPC"
+@export var faceset: Texture2D
+@export var dialog_lines: Array[String] = []
 
 func interact():
-	dialog_box.visible = not dialog_box.visible
-
-func is_dialog_open() -> bool:
-	return dialog_box.visible
+	if DialogBox.is_open():
+		DialogBox.advance()
+	else:
+		DialogBox.start(npc_name, faceset, dialog_lines)
 
 func close_dialog():
-	dialog_box.visible = false
+	DialogBox.close()

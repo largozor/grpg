@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://0cfick8o67u6"]
+[gd_scene load_steps=12 format=4 uid="uid://0cfick8o67u6"]
 
 [ext_resource type="PackedScene" uid="uid://mqbewlb04dp3" path="res://scenes/player/player.tscn" id="1_at4pv"]
 [ext_resource type="PackedScene" uid="uid://ce1y0c3dq5cg8" path="res://scenes/scene_entrance/scene_entrance.tscn" id="2_6od5n"]
@@ -10,12 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dt0bxci5d41ym" path="res://scenes/block/ice_block.tscn" id="8_khfx7"]
 [ext_resource type="PackedScene" uid="uid://s22lhttv1wnn" path="res://scenes/puzzle_button/single_use_puzzle_button.tscn" id="9_b53cf"]
 [ext_resource type="PackedScene" uid="uid://cyirsfvkt6lba" path="res://scenes/puzzle_boundary/puzzle_boundary.tscn" id="10_l2mmo"]
+[ext_resource type="PackedScene" path="res://scenes/puzzle_reset_switch/puzzle_reset_switch.tscn" id="11_reset"]
 
 [node name="DungeonScene" type="Node2D"]
 
 [node name="SceneEntrance" parent="." instance=ExtResource("2_6od5n")]
 position = Vector2(321, -14)
 next_scene = "res://scenes/game_scene/game_scene.tscn"
+use_spawn_position = true
 player_spawn_position = Vector2(216, -20)
 
 [node name="DungeonFloorLayer" parent="." instance=ExtResource("2_xk30f")]
@@ -69,6 +71,14 @@ position = Vector2(-62, 53)
 [node name="PuzzleBoundary2" parent="." instance=ExtResource("10_l2mmo")]
 position = Vector2(284, 138)
 rotation = 1.5707964
+
+[node name="PuzzleResetSwitch" parent="." node_paths=PackedStringArray("blocks") instance=ExtResource("11_reset")]
+position = Vector2(-82, 70)
+blocks = [NodePath("../Block"), NodePath("../Block2")]
+
+[node name="PuzzleResetSwitch2" parent="." node_paths=PackedStringArray("blocks") instance=ExtResource("11_reset")]
+position = Vector2(300, 178)
+blocks = [NodePath("../Block3")]
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
