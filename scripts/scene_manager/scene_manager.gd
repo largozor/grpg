@@ -1,6 +1,7 @@
 extends Node2D
 
-var player_spawn_position: Vector2
+# Where the player appears in the next scene, or null to use where the scene places them
+var player_spawn_position = null
 
 # Game state that has to survive scene changes
 

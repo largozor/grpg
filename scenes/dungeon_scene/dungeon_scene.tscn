@@ -17,6 +17,7 @@
 [node name="SceneEntrance" parent="." instance=ExtResource("2_6od5n")]
 position = Vector2(321, -14)
 next_scene = "res://scenes/game_scene/game_scene.tscn"
+use_spawn_position = true
 player_spawn_position = Vector2(216, -20)
 
 [node name="DungeonFloorLayer" parent="." instance=ExtResource("2_xk30f")]

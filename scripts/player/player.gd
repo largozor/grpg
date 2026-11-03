@@ -29,7 +29,7 @@ var knockback: Vector2 = Vector2.ZERO
 var hp: int
 
 func _ready() -> void:
-	if SceneManager.player_spawn_position != Vector2(0,0):
+	if SceneManager.player_spawn_position != null:
 		position = SceneManager.player_spawn_position
 
 	# Carry health over from the last scene
@@ -105,7 +105,7 @@ func facing_offset() -> Vector2:
 	return Vector2(0, 12)
 
 func push_blocks():
-		# Get the last collision, and push the block
+	# Get the last collision, and push the block
 	var collision: KinematicCollision2D = get_last_slide_collision()
 
 	if collision:
