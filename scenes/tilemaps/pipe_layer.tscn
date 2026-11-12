@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://chwe57o6032s5"]
+
+[ext_resource type="Texture2D" uid="uid://di2l2vfk001hp" path="res://assets/Backgrounds/Tilesets/Pipes.png" id="1_soi30"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8x4r"]
+texture = ExtResource("1_soi30")
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_y434c"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_h8x4r")
+
+[node name="PipeLayer" type="TileMapLayer" groups=["walls"]]
+tile_set = SubResource("TileSet_y434c")
