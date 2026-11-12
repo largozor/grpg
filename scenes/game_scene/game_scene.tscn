@@ -327,7 +327,7 @@ position = Vector2(174, 2)
 [node name="ObstacleLayer" type="TileMapLayer" parent="." groups=["obstacles"]]
 editor_description = "Y-sorted, so anything that moves or stands among the trees goes in here as a child. That way the player, NPCs, enemies and blocks draw in front of or behind the trees and each other."
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD1/wYAAAAAABIAAAANAAEAAAAAABIAAAAUAAEAAAARAA4AAAAaAPz/AAARAA4AAAAUAPn/AAARAA4AAAAcAAQAAAARAA4AAAAkAAIAAAARAA4AAAAjAPj/AAARAA4AAAD8/wEAAAAGAAAAAAABAAMAAAAGAAAAAAD6//7/AAAGAAAAAAAEAP3/AAAEAAAAAAAAAPr/AAAEAAAAAAAIAPf/AAAEAAAAAAAMAPX/AAAEAAAAAAADAPT/AAAEAAAAAAAJAPL/AAAEAAAAAAD+//3/AAAAAAAAAAD2/wEAAAAAAAIAAAACAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAANAP3/AQAAAAcAAAA=")
+tile_map_data = PackedByteArray("AAD1/wYAAAAAABIAAAANAAEAAAAAABIAAAAUAAEAAAARAA4AAAAaAPz/AAARAA4AAAAUAPn/AAARAA4AAAAcAAQAAAARAA4AAAAkAAIAAAARAA4AAAAjAPj/AAARAA4AAAD8/wEAAAAGAAAAAAABAAMAAAAGAAAAAAD6//7/AAAGAAAAAAAEAP3/AAAEAAAAAAAAAPr/AAAEAAAAAAAIAPf/AAAEAAAAAAAMAPX/AAAEAAAAAAADAPT/AAAEAAAAAAAJAPL/AAAEAAAAAAD+//3/AAAAAAAAAAD2/wEAAAAAAAIAAAACAAYAAAAAAAIAAAAEAAUAAAAAAAIAAAANAP3/AQAAAAcAAAD3//j/AQAAAAcAAAA=")
 tile_set = SubResource("TileSet_ducuf")
 
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("1_pwder")]
@@ -346,6 +346,10 @@ position = Vector2(-20, 130)
 [node name="SceneEntrance" parent="." instance=ExtResource("5_ducuf")]
 position = Vector2(217, -40)
 next_scene = "res://scenes/dungeon_scene/dungeon_scene.tscn"
+
+[node name="SceneEntrance2" parent="." instance=ExtResource("5_ducuf")]
+position = Vector2(-136, -120)
+next_scene = "res://scenes/dungeon_scene_2/dungeon_scene_2.tscn"
 
 [node name="Block" parent="ObstacleLayer" instance=ExtResource("6_j8flk")]
 position = Vector2(144, 2)
